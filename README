@@ -1,0 +1,17 @@
+How to launch the app:
+
+1 - Install docker and docker compose
+2 - Start kafka: docker-compose -f docker/docker-compose.yml up
+3 - Make sure you have python3 installed
+4 - Launch frontend.sh (it will also create venv and fetch dependencies)
+5 - Launch backend.sh in separete shell
+6 - Go to http://localhost:5000/ and post some text
+
+
+How it works:
+
+Fronted posts all messages directly to kafka, using remote address as partition
+key
+
+Backend consumes all messages from the topic accoring to the consumer's group 
+offset.

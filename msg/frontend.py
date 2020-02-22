@@ -10,11 +10,11 @@ def create_app(test_config=None):
 
     producer = create_producer()
 
-    @app.route('/message', methods=['GET'])
+    @app.route('/', methods=['GET'])
     def render_form():
         return f.render_template('post-message.html')
 
-    @app.route('/message', methods=['POST'])
+    @app.route('/', methods=['POST'])
     def handle_message():
         message = f.request.form['message']
         validated = validate(message)

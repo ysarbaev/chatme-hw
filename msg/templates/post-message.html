@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+</script>
+
+<h1>Post message</h1>
+
+<input type="text" name="message">
+<p/>
+<span id="result"></span>
+<p/>
+<button onclick="post_message()">Click me</button>
+
+<script>
+var ROOT = '{{ request.url_root }}';
+
+function post_message() {
+  $.post(ROOT + 'message', {
+    message: $('input[name="message"]').val(),
+  }, function(data) {
+    $("#result").text(data);
+  });
+}
+</script>
+
+</body>
+</html>
